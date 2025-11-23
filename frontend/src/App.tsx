@@ -11,9 +11,8 @@ interface TestCase {
 }
 
 function App() {
-    const [, setFile] = useState<File | null>(null);
+    const [file, setFile] = useState<File | null>(null);
     const [testCases, setTestCases] = useState<TestCase[]>([]);
-    const [, setLoading] = useState(false);
     const [generating, setGenerating] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -29,7 +28,6 @@ function App() {
         if (!selectedFile) return;
 
         setFile(selectedFile);
-        setLoading(true);
         setError(null);
 
         const formData = new FormData();
@@ -50,8 +48,6 @@ function App() {
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Unknown error');
             setFile(null);
-        } finally {
-            setLoading(false);
         }
     };
 
