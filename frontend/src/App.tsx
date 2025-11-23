@@ -11,14 +11,14 @@ interface TestCase {
 }
 
 function App() {
-    const [file, setFile] = useState<File | null>(null);
+    const [, setFile] = useState<File | null>(null);
     const [testCases, setTestCases] = useState<TestCase[]>([]);
-    const [loading, setLoading] = useState(false);
+    const [, setLoading] = useState(false);
     const [generating, setGenerating] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     // Config State
-    const [framework, setFramework] = useState("selenium-python-pytest");
+    const [framework] = useState("selenium-python-pytest");
     const [mode, setMode] = useState("full");
     const [url, setUrl] = useState("");
     const [apiKey, setApiKey] = useState("");
