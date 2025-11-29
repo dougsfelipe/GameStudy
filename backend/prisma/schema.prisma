@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Topic {
+  id        String     @id @default(uuid())
+  name      String
+  subtopics Subtopic[]
+}
+
+model Subtopic {
+  id       String    @id @default(uuid())
+  name     String
+  topicId  String
+  topic    Topic     @relation(fields: [topicId], references: [id])
+  subjects Subject[]
+}
+
+model Subject {
+  id          String         @id @default(uuid())
+  name        String
+  description String
+  subtopicId  String
+  subtopic    Subtopic       @relation(fields: [subtopicId], references: [id])
+  games       Game[]
+  progress    UserProgress[]
+}
+
+model Game {
+  id        String   @id @default(uuid())
+  type      String   // "flashcard", "matching", "dragdrop", "quiz"
+  title     String
+  content   String   // JSON string of game content
+  subjectId String
+  subject   Subject  @relation(fields: [subjectId], references: [id])
+}
+
+model UserProgress {
+  id        String   @id @default(uuid())
+  subjectId String
+  subject   Subject  @relation(fields: [subjectId], references: [id])
+  gameId    String?  // Optional, if tracking per game
+  score     Int
+  completed Boolean  @default(false)
+  updatedAt DateTime @updatedAt
+}

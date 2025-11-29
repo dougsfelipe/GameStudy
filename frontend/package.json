@@ -3,16 +3,25 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
+    "homepage": "https://dougsfelipe.github.io/GameStudy",
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",
         "lint": "eslint .",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
     },
     "dependencies": {
+        "axios": "^1.13.2",
+        "clsx": "^2.1.1",
+        "framer-motion": "^12.23.24",
         "lucide-react": "^0.460.0",
         "react": "^18.3.1",
-        "react-dom": "^18.3.1"
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^7.9.6",
+        "tailwind-merge": "^3.4.0",
+        "zustand": "^5.0.8"
     },
     "devDependencies": {
         "@eslint/js": "^9.13.0",
@@ -23,6 +32,7 @@
         "eslint": "^9.13.0",
         "eslint-plugin-react-hooks": "^5.0.0",
         "eslint-plugin-react-refresh": "^0.4.14",
+        "gh-pages": "^6.3.0",
         "globals": "^15.11.0",
         "postcss": "^8.4.49",
         "tailwindcss": "^3.4.15",
