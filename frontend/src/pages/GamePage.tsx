@@ -4,7 +4,6 @@ import { useStore } from '../store/useStore';
 import { GameShell } from '../components/GameShell';
 import { MatchingGame } from '../components/MatchingGame';
 import { FlashcardGame } from '../components/FlashcardGame';
-import { api } from '../lib/api';
 import { Game } from '../types';
 
 export const GamePage: React.FC = () => {
