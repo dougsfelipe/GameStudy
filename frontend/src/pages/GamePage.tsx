@@ -10,53 +10,50 @@ import { Game } from '../types';
 export const GamePage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const { saveProgress } = useStore();
+    const { topics, fetchTopics, saveProgress } = useStore();
     const [game, setGame] = useState<Game | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchGame = async () => {
+        const loadGame = async () => {
             if (!id) return;
-            try {
-                // We need to fetch the game details directly since we might not have the subject loaded
-                // Ideally we would have a getGame endpoint, but we can find it via subject for now or assume we have it
-                // For simplicity, let's fetch the subject if we can, or just iterate topics.
-                // Actually, let's add a specific endpoint for game or just fetch all topics and find it (inefficient but works for small app)
-                // Better: Let's assume the backend has a way to get game by ID or we just fetch the subject it belongs to.
-                // Since I didn't make a specific /games/:id endpoint, I'll fetch the subject first if I know it, but I don't know the subject ID here easily without query param.
-                // Let's just add a quick endpoint to the backend or fetch all topics.
-                // WAIT: I can just use the store if it's populated, but on refresh it won't be.
-                // I'll add a simple fetch to get all topics and find the game for now to avoid backend changes if possible, 
-                // OR I can just add the endpoint to backend quickly.
-                // Let's try to fetch topics and search.
-                const { data } = await api.get('/topics');
-                let foundGame: Game | undefined;
-                let subjectId: string | undefined;
 
-                for (const topic of data) {
-                    for (const subtopic of topic.subtopics) {
-                        for (const subject of subtopic.subjects) {
-                            const g = subject.games.find((g: Game) => g.id === id);
-                            if (g) {
-                                foundGame = g;
-                                subjectId = subject.id;
-                                break;
-                            }
+            // Ensure topics are loaded (will use mock if API fails)
+            if (topics.length === 0) {
+                await fetchTopics();
+            }
+
+            // Search for game in topics (store state)
+            // Note: We need to access the latest state, so we might need to rely on the effect re-running or check store directly if needed.
+            // But since fetchTopics awaits, the store should be updated. 
+            // However, due to closure, 'topics' might be stale here if we don't depend on it.
+            // Better to get state directly or depend on topics.
+
+            const currentTopics = useStore.getState().topics;
+
+            let foundGame: Game | undefined;
+            let subjectId: string | undefined;
+
+            for (const topic of currentTopics) {
+                for (const subtopic of topic.subtopics) {
+                    for (const subject of subtopic.subjects) {
+                        const g = subject.games.find((g: Game) => g.id === id);
+                        if (g) {
+                            foundGame = g;
+                            subjectId = subject.id;
+                            break;
                         }
                     }
                 }
-
-                if (foundGame) {
-                    setGame({ ...foundGame, subjectId } as any);
-                }
-            } catch (e) {
-                console.error("Failed to load game", e);
-            } finally {
-                setLoading(false);
             }
+
+            if (foundGame) {
+                setGame({ ...foundGame, subjectId } as any);
+            }
+            setLoading(false);
         };
-        fetchGame();
-    }, [id]);
+        loadGame();
+    }, [id, topics.length]); // Re-run if topics load
 
     const handleComplete = async (score: number) => {
         if (game && (game as any).subjectId) {
