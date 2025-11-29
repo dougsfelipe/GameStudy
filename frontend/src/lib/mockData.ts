@@ -118,6 +118,82 @@ export const MOCK_TOPICS: Topic[] = [
                         ]
                     }
                 ]
+            },
+            {
+                id: 'web-dev-subtopic',
+                name: 'Web Developer',
+                subjects: [
+                    {
+                        id: 'react-subject',
+                        name: 'React',
+                        description: 'Biblioteca para interfaces de usuário (Hooks, Components, JSX)',
+                        games: [
+                            {
+                                id: 'react-matching',
+                                type: 'matching',
+                                title: 'React Essentials',
+                                content: JSON.stringify({
+                                    pairs: [
+                                        { term: 'useState', definition: 'Gerencia estado local em componentes funcionais.' },
+                                        { term: 'useEffect', definition: 'Executa efeitos colaterais (API, DOM).' },
+                                        { term: 'useContext', definition: 'Acessa contexto global sem prop drilling.' },
+                                        { term: 'JSX', definition: 'Sintaxe que mistura HTML com JavaScript.' },
+                                        { term: 'Props', definition: 'Dados passados de pai para filho (somente leitura).' },
+                                        { term: 'npm create vite@latest', definition: 'Comando para criar um projeto React moderno.' },
+                                        { term: 'virtual DOM', definition: 'Cópia leve do DOM para otimizar atualizações.' }
+                                    ]
+                                })
+                            }
+                        ]
+                    },
+                    {
+                        id: 'angular-subject',
+                        name: 'Angular',
+                        description: 'Framework robusto para aplicações web (CLI, Diretivas, Services)',
+                        games: [
+                            {
+                                id: 'angular-flashcards',
+                                type: 'flashcard',
+                                title: 'Angular CLI & Concepts',
+                                content: JSON.stringify({
+                                    cards: [
+                                        { front: 'ng new', back: 'Cria um novo projeto Angular configurado.' },
+                                        { front: 'ng serve', back: 'Inicia o servidor de desenvolvimento local.' },
+                                        { front: 'ng generate component', back: 'Cria automaticamente os arquivos de um componente.' },
+                                        { front: '*ngIf', back: 'Diretiva estrutural para renderização condicional.' },
+                                        { front: '*ngFor', back: 'Diretiva estrutural para iterar sobre listas.' },
+                                        { front: '[(ngModel)]', back: 'Sintaxe para Two-Way Data Binding.' },
+                                        { front: '@Input()', back: 'Decorador para receber dados do componente pai.' }
+                                    ]
+                                })
+                            }
+                        ]
+                    },
+                    {
+                        id: 'nodejs-subject',
+                        name: 'Node.js',
+                        description: 'Runtime JavaScript server-side (NPM, Modules, Express)',
+                        games: [
+                            {
+                                id: 'node-matching',
+                                type: 'matching',
+                                title: 'Node.js & NPM',
+                                content: JSON.stringify({
+                                    pairs: [
+                                        { term: 'npm init', definition: 'Inicializa um projeto criando o package.json.' },
+                                        { term: 'npm install', definition: 'Baixa e instala as dependências listadas.' },
+                                        { term: 'node index.js', definition: 'Executa o arquivo JavaScript no runtime.' },
+                                        { term: 'require()', definition: 'Função CommonJS para importar módulos.' },
+                                        { term: 'module.exports', definition: 'Objeto para exportar funcionalidades do módulo.' },
+                                        { term: 'fs', definition: 'Módulo nativo para manipulação de arquivos.' },
+                                        { term: 'http', definition: 'Módulo nativo para criar servidores HTTP.' },
+                                        { term: 'Express', definition: 'Framework web minimalista e flexível para Node.js.' }
+                                    ]
+                                })
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }
