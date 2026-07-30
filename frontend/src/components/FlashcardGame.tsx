@@ -85,7 +85,10 @@ export const FlashcardGame: React.FC<FlashcardGameProps> = ({ content, onComplet
                     style={{ transformStyle: 'preserve-3d' }}
                 >
                     {/* Front */}
-                    <div className="absolute w-full h-full backface-hidden bg-white border-2 border-indigo-100 rounded-2xl shadow-xl flex items-center justify-center p-8 text-center">
+                    <div 
+                        className="absolute w-full h-full bg-white border-2 border-indigo-100 rounded-2xl shadow-xl flex items-center justify-center p-8 text-center"
+                        style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+                    >
                         <h3 className="text-2xl font-bold text-slate-800">{cards[currentIndex].front}</h3>
                         <div className="absolute bottom-4 text-slate-400 text-sm flex items-center">
                             <RotateCw className="w-4 h-4 mr-1" /> Clique para virar
@@ -94,8 +97,8 @@ export const FlashcardGame: React.FC<FlashcardGameProps> = ({ content, onComplet
 
                     {/* Back */}
                     <div
-                        className="absolute w-full h-full backface-hidden bg-indigo-50 border-2 border-indigo-200 rounded-2xl shadow-xl flex items-center justify-center p-8 text-center"
-                        style={{ transform: 'rotateY(180deg)' }}
+                        className="absolute w-full h-full bg-indigo-50 border-2 border-indigo-200 rounded-2xl shadow-xl flex items-center justify-center p-8 text-center"
+                        style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                     >
                         <p className="text-lg text-slate-700">{cards[currentIndex].back}</p>
                     </div>

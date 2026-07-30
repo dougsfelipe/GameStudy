@@ -106,6 +106,52 @@ async function main() {
                                     }
                                 },
                                 {
+                                    name: 'JPA',
+                                    description: 'Conceitos de Mapeamento JPA e Claims JWT',
+                                    games: {
+                                        create: [
+                                            {
+                                                type: 'matching',
+                                                title: 'Notation',
+                                                content: JSON.stringify({
+                                                    pairs: [
+                                                        { term: '@Entity', definition: 'Objeto do banco de dados (Database object)' },
+                                                        { term: '@Id', definition: 'Chave primária (Primary key)' },
+                                                        { term: '@GeneratedValue', definition: 'ID gerado automaticamente (Auto-generated ID)' },
+                                                        { term: '@JoinColumn', definition: 'Chave estrangeira (Foreign key)' },
+                                                        { term: '@ManyToOne', definition: 'Muitos filhos → Um pai' },
+                                                        { term: '@OneToMany', definition: 'Um pai → Muitos filhos' },
+                                                        { term: 'LAZY', definition: 'Carregamento sob demanda (Load on demand)' },
+                                                        { term: 'EAGER', definition: 'Carregamento imediato (Load immediately)' },
+                                                        { term: '@Table', definition: 'Mapeia a entidade para uma tabela específica' },
+                                                        { term: '@Column', definition: 'Mapeia um campo para uma coluna do banco' },
+                                                        { term: '@Transient', definition: 'Campo não é persistido no banco de dados' },
+                                                        { term: '@Enumerated', definition: 'Armazena um enum como STRING ou ORDINAL' },
+                                                        { term: '@Lob', definition: 'Armazena objetos grandes (BLOB/CLOB)' },
+                                                        { term: '@Embedded', definition: 'Embute outro objeto dentro da entidade' },
+                                                        { term: '@Embeddable', definition: 'Marca uma classe que pode ser embutida em uma entidade' }
+                                                    ]
+                                                })
+                                            },
+                                            {
+                                                type: 'matching',
+                                                title: 'JWT',
+                                                content: JSON.stringify({
+                                                    pairs: [
+                                                        { term: 'iss', definition: 'Quem emitiu o token (Who issued it)' },
+                                                        { term: 'sub', definition: 'Quem o token representa (Who it represents)' },
+                                                        { term: 'aud', definition: 'Quem pode usar o token (Who can use it)' },
+                                                        { term: 'exp', definition: 'Data/hora de expiração do token (Expiration)' },
+                                                        { term: 'iat', definition: 'Data/hora de criação do token (Creation time)' },
+                                                        { term: 'nbf', definition: 'Válido a partir de (Valid from)' },
+                                                        { term: 'jti', definition: 'ID único do token (Unique token ID)' }
+                                                    ]
+                                                })
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
                                     name: 'Spring Framework & Data',
                                     description: 'Conceitos avançados de Spring e Acesso a Dados',
                                     games: {
