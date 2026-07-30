@@ -11,8 +11,8 @@ export const MOCK_TOPICS: Topic[] = [
         subjects: [
           {
             id: '468ca9f2-5b2b-4047-a09c-27e33829cd7c',
-            name: 'Anotações de Java Spring',
-            description: 'Aprenda as principais anotações do Spring Boot',
+            name: 'Anotações de Java Spring & Data',
+            description: 'Aprenda as principais anotações do Spring Boot, Spring Core e Spring Data',
             games: [
               {
                 id: 'd9109ca9-d293-407f-8273-2a830a44b95e',
@@ -40,6 +40,21 @@ export const MOCK_TOPICS: Topic[] = [
                   cards: [
                     { front: '@SpringBootApplication', back: 'Anotação que marca a classe principal de configuração.' },
                     { front: '@Autowired', back: 'Injeta dependências automaticamente.' }
+                  ]
+                })
+              },
+              {
+                id: 'spring-data-flashcards',
+                type: 'flashcard',
+                title: 'Spring Core & Data',
+                content: JSON.stringify({
+                  cards: [
+                    { front: '@SpringBootApplication', back: 'Combina @Configuration, @EnableAutoConfiguration e @ComponentScan.' },
+                    { front: '@Service', back: 'Especialização de @Component para lógica de negócio.' },
+                    { front: '@Repository', back: 'Especialização de @Component para acesso a dados e exception translation.' },
+                    { front: '@Query', back: 'Permite consultas JPQL ou SQL nativo customizadas.' },
+                    { front: '@Transactional', back: 'Define os limites de uma transação (tudo ou nada).' },
+                    { front: '@Modifying', back: 'Indica que a consulta modificará dados (INSERT, UPDATE, DELETE).' }
                   ]
                 })
               }
@@ -73,8 +88,8 @@ export const MOCK_TOPICS: Topic[] = [
           },
           {
             id: 'jpa-hibernate-subject',
-            name: 'JPA e Hibernate',
-            description: 'Mapeamento Objeto-Relacional e Persistência',
+            name: 'JPA/Hibernate',
+            description: 'Mapeamento Objeto-Relacional, Persistência e Claims JWT',
             games: [
               {
                 id: 'jpa-matching',
@@ -92,14 +107,7 @@ export const MOCK_TOPICS: Topic[] = [
                     { term: '@Cacheable', definition: 'Habilita o cache de segundo nível (Hibernate).' }
                   ]
                 })
-              }
-            ]
-          },
-          {
-            id: 'jpa-subject-main',
-            name: 'JPA',
-            description: 'Conceitos de Mapeamento JPA e Claims JWT',
-            games: [
+              },
               {
                 id: 'jpa-notation-matching',
                 type: 'matching',
@@ -137,28 +145,6 @@ export const MOCK_TOPICS: Topic[] = [
                     { term: 'iat', definition: 'Data/hora de criação do token (Creation time)' },
                     { term: 'nbf', definition: 'Válido a partir de (Valid from)' },
                     { term: 'jti', definition: 'ID único do token (Unique token ID)' }
-                  ]
-                })
-              }
-            ]
-          },
-          {
-            id: 'spring-data-subject',
-            name: 'Spring Framework & Data',
-            description: 'Conceitos avançados de Spring e Acesso a Dados',
-            games: [
-              {
-                id: 'spring-data-flashcards',
-                type: 'flashcard',
-                title: 'Spring Core & Data',
-                content: JSON.stringify({
-                  cards: [
-                    { front: '@SpringBootApplication', back: 'Combina @Configuration, @EnableAutoConfiguration e @ComponentScan.' },
-                    { front: '@Service', back: 'Especialização de @Component para lógica de negócio.' },
-                    { front: '@Repository', back: 'Especialização de @Component para acesso a dados e exception translation.' },
-                    { front: '@Query', back: 'Permite consultas JPQL ou SQL nativo customizadas.' },
-                    { front: '@Transactional', back: 'Define os limites de uma transação (tudo ou nada).' },
-                    { front: '@Modifying', back: 'Indica que a consulta modificará dados (INSERT, UPDATE, DELETE).' }
                   ]
                 })
               }

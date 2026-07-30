@@ -21,8 +21,8 @@ async function main() {
                         subjects: {
                             create: [
                                 {
-                                    name: 'Anotações de Java Spring',
-                                    description: 'Aprenda as principais anotações do Spring Boot',
+                                    name: 'Anotações de Java Spring & Data',
+                                    description: 'Aprenda as principais anotações do Spring Boot, Spring Core e Spring Data',
                                     games: {
                                         create: [
                                             {
@@ -49,6 +49,20 @@ async function main() {
                                                     cards: [
                                                         { front: '@SpringBootApplication', back: 'Anotação que marca a classe principal de configuração.' },
                                                         { front: '@Autowired', back: 'Injeta dependências automaticamente.' }
+                                                    ]
+                                                })
+                                            },
+                                            {
+                                                type: 'flashcard',
+                                                title: 'Spring Core & Data',
+                                                content: JSON.stringify({
+                                                    cards: [
+                                                        { front: '@SpringBootApplication', back: 'Combina @Configuration, @EnableAutoConfiguration e @ComponentScan.' },
+                                                        { front: '@Service', back: 'Especialização de @Component para lógica de negócio.' },
+                                                        { front: '@Repository', back: 'Especialização de @Component para acesso a dados e exception translation.' },
+                                                        { front: '@Query', back: 'Permite consultas JPQL ou SQL nativo customizadas.' },
+                                                        { front: '@Transactional', back: 'Define os limites de uma transação (tudo ou nada).' },
+                                                        { front: '@Modifying', back: 'Indica que a consulta modificará dados (INSERT, UPDATE, DELETE).' }
                                                     ]
                                                 })
                                             }
@@ -82,8 +96,8 @@ async function main() {
                                     }
                                 },
                                 {
-                                    name: 'JPA e Hibernate',
-                                    description: 'Mapeamento Objeto-Relacional e Persistência',
+                                    name: 'JPA/Hibernate',
+                                    description: 'Mapeamento Objeto-Relacional, Persistência e Claims JWT',
                                     games: {
                                         create: [
                                             {
@@ -101,15 +115,7 @@ async function main() {
                                                         { term: '@Cacheable', definition: 'Habilita o cache de segundo nível (Hibernate).' }
                                                     ]
                                                 })
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    name: 'JPA',
-                                    description: 'Conceitos de Mapeamento JPA e Claims JWT',
-                                    games: {
-                                        create: [
+                                            },
                                             {
                                                 type: 'matching',
                                                 title: 'Notation',
@@ -145,28 +151,6 @@ async function main() {
                                                         { term: 'iat', definition: 'Data/hora de criação do token (Creation time)' },
                                                         { term: 'nbf', definition: 'Válido a partir de (Valid from)' },
                                                         { term: 'jti', definition: 'ID único do token (Unique token ID)' }
-                                                    ]
-                                                })
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    name: 'Spring Framework & Data',
-                                    description: 'Conceitos avançados de Spring e Acesso a Dados',
-                                    games: {
-                                        create: [
-                                            {
-                                                type: 'flashcard',
-                                                title: 'Spring Core & Data',
-                                                content: JSON.stringify({
-                                                    cards: [
-                                                        { front: '@SpringBootApplication', back: 'Combina @Configuration, @EnableAutoConfiguration e @ComponentScan.' },
-                                                        { front: '@Service', back: 'Especialização de @Component para lógica de negócio.' },
-                                                        { front: '@Repository', back: 'Especialização de @Component para acesso a dados e exception translation.' },
-                                                        { front: '@Query', back: 'Permite consultas JPQL ou SQL nativo customizadas.' },
-                                                        { front: '@Transactional', back: 'Define os limites de uma transação (tudo ou nada).' },
-                                                        { front: '@Modifying', back: 'Indica que a consulta modificará dados (INSERT, UPDATE, DELETE).' }
                                                     ]
                                                 })
                                             }
