@@ -16,3 +16,9 @@ dist/
 
 # Project specific
 *.zip
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+frontend/cypress/videos/
+frontend/cypress/screenshots/

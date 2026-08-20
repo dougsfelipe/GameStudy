@@ -183,6 +183,17 @@ async function main() {
                                                         { term: 'virtual DOM', definition: 'Cópia leve do DOM para otimizar atualizações.' }
                                                     ]
                                                 })
+                                            },
+                                            {
+                                                type: 'flashcard',
+                                                title: 'React Flashcards',
+                                                content: JSON.stringify({
+                                                    cards: [
+                                                        { front: 'useState', back: 'Hook para gerenciar estado em componentes funcionais.' },
+                                                        { front: 'useEffect', back: 'Hook para executar efeitos colaterais em componentes funcionais.' },
+                                                        { front: 'useContext', back: 'Hook para acessar dados globais de contexto.' }
+                                                    ]
+                                                })
                                             }
                                         ]
                                     }
